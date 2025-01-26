@@ -12,6 +12,16 @@ export const product = defineType({
             type: "string"
         },
         {
+            name:"slug",
+            type:"slug",
+            title:"Slug",
+            options:{
+                source:"title"
+            }
+
+
+        },
+        {
             name:"description",
             type:"text",
             validation: (rule) => rule.required(),
@@ -28,6 +38,11 @@ export const product = defineType({
             type: "number",
             validation: (rule) => rule.required(),
             title: "Price",
+        },
+        {
+            name:"inventory",
+            title:"Inventory",
+            type:"number",
         },
         {
             name: "tags",
