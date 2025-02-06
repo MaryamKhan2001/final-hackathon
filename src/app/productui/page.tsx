@@ -21,13 +21,14 @@ const PRODUCTUI = () => {
         }
         fetchProducts();
     }, []);
-    const handleAddToCart = (e:React.MouseEvent,product: Product)=>{
+    const handleAddToCart = (e:React.MouseEvent, product: Product)=>{
         e.preventDefault()
         Swal.fire({
             position: "top-right",
             title: `${product.title} added to cart`,
             showConfirmButton:false,
-            timer:1000
+            timer:1000,
+            icon:"success"
         })
         addToCart(product)
        
@@ -56,7 +57,7 @@ const PRODUCTUI = () => {
                             {product.price ? `$${product.price}` : "Price Not Available"}
                         </p>
                         <button
-                        className="bg-gradient-to-r from-blue-500 to-pink-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg 
+                        className="bg-gradient-to-r from-lime-600 to-lime-950 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg 
                         hover:scale-110 transition-transform duration-200 ease-in-out
                          "
                          onClick={(e)=> handleAddToCart(e,product)}>
