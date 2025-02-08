@@ -32,38 +32,45 @@ const FeaturedPosts = () => {
   ];
 
   return (
-    <div className="bg-white py-10 mt-28">
+    <div className="bg-white py-16 lg:py-20 mt-18">
       {/* Section Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-800">Featured Posts</h2>
-        <p className="text-gray-500">
+      <div className="text-center mb-12 lg:mb-16">
+        <h2 className="text-3xl lg:text-4xl font-bold text-gray-800">Featured Posts</h2>
+        <p className="text-lg lg:text-xl text-gray-500 mt-2">
           Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics
         </p>
       </div>
 
       {/* Posts Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 lg:px-12 max-w-7xl mx-auto">
         {posts.map((post) => (
-          <div key={post.id} className="bg-white shadow-md rounded-lg overflow-hidden">
+          <div
+            key={post.id}
+            className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300"
+          >
             {/* Post Image */}
             <div className="relative">
-              <img src={post.img} alt={post.title} className="w-full h-40 object-cover" />
-              <span className="absolute top-2 left-2 bg-red-500 text-white text-sm font-bold px-2 py-1 rounded">
+              <img
+                src={post.img}
+                alt={post.title}
+                className="w-full h-48 sm:h-56 lg:h-64 object-cover" // Larger height for images
+              />
+              <span className="absolute top-3 left-3 bg-red-500 text-white text-sm lg:text-base font-bold px-3 py-1 rounded">
                 {post.tag}
               </span>
             </div>
 
             {/* Post Content */}
-            <div className="p-3">
-              <h3 className="text-md font-semibold text-gray-800">{post.title}</h3>
-              <p className="text-gray-600 text-sm mt-2">{post.description}</p>
-              <div className="flex justify-between items-center text-gray-500 text-xs mt-4">
+            <div className="p-6 lg:p-8">
+              <h3 className="text-lg lg:text-xl font-semibold text-gray-800">{post.title}</h3>
+              <p className="text-gray-600 text-sm lg:text-base mt-4">{post.description}</p>
+              <div className="flex justify-between items-center text-gray-500 text-sm lg:text-base mt-6">
                 <span>{post.date}</span>
                 <span>{post.comments} comments</span>
               </div>
               <a
                 href="#"
-                className="text-blue-500 text-xs font-medium mt-4 inline-block hover:underline"
+                className="text-blue-500 text-sm lg:text-base font-medium mt-6 inline-block hover:underline"
               >
                 Learn More →
               </a>

@@ -15,7 +15,7 @@ export default function Editors() {
         </div>
 
         {/* Images Section */}
-        <div className="w-full h-[500px] flex gap-[30px]">
+        <div className="w-full flex flex-col sm:flex-col md:flex-row gap-[30px]">
           {/* Men Image */}
           <div className="relative flex flex-col items-center">
             <Image

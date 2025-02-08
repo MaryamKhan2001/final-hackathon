@@ -1,41 +1,41 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Herosection = () => {
   return (
-    <div className="relative w-full h-[716px]">
+    <div className="relative w-full h-[500px] sm:h-[716px]">
       {/* Background Image */}
-      <Image 
-        src="/maingirl.jpg" 
-        alt="maingirl" 
-        height={716} 
-        width={1440} 
-        className="w-full h-full object-cover" 
+      <Image
+        src="/maingirl.jpg"
+        alt="maingirl"
+        height={716}
+        width={1440}
+        className="w-full h-full object-cover"
       />
-      
+
       {/* Text Overlay */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center sm:items-start p-8 sm:p-12">
-        <div className="w-full sm:w-[599px] h-auto gap-[25px] text-center sm:text-left">
-          <h5 className="font-montserrat font-bold text-[14px] sm:text-[16px] leading-[20px] sm:leading-[24px] tracking-[0.1px] text-white">
-            SUMMER 2020
+      <div className="absolute inset-0 flex flex-col justify-center items-center sm:items-start px-4 sm:px-12">
+        <div className="w-full sm:w-[599px] flex flex-col items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6">
+          <h5 className="font-montserrat font-bold text-[12px] sm:text-[16px] leading-[16px] sm:leading-[24px] tracking-[0.1px] text-white uppercase">
+            Summer 2020
           </h5>
-          <h1 className="font-montserrat font-bold text-[40px] sm:text-[58px] leading-[56px] sm:leading-[80px] tracking-[0.2px] text-white">
-            NEW COLLECTION
+          <h1 className="font-montserrat font-bold text-[32px] sm:text-[58px] leading-[40px] sm:leading-[80px] tracking-[0.2px] text-white">
+            New Collection
           </h1>
-          <h4 className="font-montserrat font-normal text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] tracking-[0.2px] text-white w-full sm:w-[376px]">
+          <h4 className="font-montserrat font-normal text-[14px] sm:text-[20px] leading-[20px] sm:leading-[30px] tracking-[0.2px] text-white w-full sm:w-[376px]">
             We know how large objects will act, 
             but things on a small scale.
           </h4>
-          <button className="w-full sm:w-auto bg-[#2DC071] py-[12px] sm:px-[40px] px-[30px] rounded-[5px] gap-[10px] text-white font-montserrat">
-           Shop Now
-          </button>
+          <Link
+            href="/productui"
+            className="w-full sm:w-auto bg-[#2DC071] py-3 sm:py-4 px-8 sm:px-16 rounded-md text-center text-white font-montserrat text-[14px] sm:text-[16px]">
+            Shop Now
+          </Link>
         </div>
-    
       </div>
-   
     </div>
-  )
-}
+  );
+};
 
-export default Herosection
-
+export default Herosection;

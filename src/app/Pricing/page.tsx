@@ -1,5 +1,13 @@
-
 import React from "react";
+import Link from "next/link";
+import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Pricing: React.FC = () => {
   return (
@@ -8,21 +16,21 @@ const Pricing: React.FC = () => {
       <header className="bg-white shadow">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-lg font-bold">Bandage</h1>
-          <nav className="space-x-4">
+          <nav className="hidden md:flex space-x-4">
             <a href="/" className="text-gray-600 hover:text-blue-600">
               Home
             </a>
             <a href="/productui" className="text-gray-600 hover:text-blue-600">
               Product
             </a>
-            <a href="/Pricing" className="text-gray-600 hover:text-blue-600">
-              Pricing
+            <a href="/About" className="text-gray-600 hover:text-blue-600">
+            About
             </a>
             <a href="/Contact" className="text-gray-600 hover:text-blue-600">
               Contact
             </a>
           </nav>
-          <div className="space-x-2">
+          <div className="space-x-2 hidden md:block">
             <a href="#" className="text-gray-600 hover:text-blue-600">
               Login
             </a>
@@ -30,11 +38,29 @@ const Pricing: React.FC = () => {
               Become a Member
             </a>
           </div>
+          {/* Mobile Menu Trigger */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger>
+                <Menu className="w-6 h-6" />
+              </SheetTrigger>
+              <SheetContent side="left">
+                <SheetHeader>
+                  <SheetTitle>Mimi chic</SheetTitle>
+                </SheetHeader>
+                <ul className="space-y-4 mt-4">
+                  <li><Link href="/">Home</Link></li>
+                  <li><Link href="/productui">Product</Link></li>
+                  <li><Link href="/About">About</Link></li>
+                  <li><Link href="/Contact">Contact</Link></li>
+                </ul>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
 
       {/* Pricing Section */}
-      
       <section className="container mx-auto px-4 py-16">
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Pricing</h2>
@@ -43,17 +69,17 @@ const Pricing: React.FC = () => {
             of classical physics: Newtonian mechanics.
           </p>
           <div className="inline-flex bg-gray-200 rounded-full p-1 mb-8">
-            <button className="px-6 py-2 bg-white rounded-full shadow">
-              Monthly
-            </button>
+            <button className="px-6 py-2 bg-white rounded-full shadow">Monthly</button>
             <button className="px-6 py-2 text-gray-600">
               Yearly <span className="text-green-600">(Save 20%)</span>
             </button>
           </div>
         </div>
+
+        {/* Pricing Cards */}
         <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
           {/* Free Plan */}
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+          <div className="bg-white shadow-lg rounded-lg p-6 text-center w-full sm:w-80">
             <h3 className="text-xl font-bold mb-4">FREE</h3>
             <p className="text-gray-600 mb-4">Organize across all apps by hand</p>
             <p className="text-4xl font-bold mb-4">$0</p>
@@ -64,12 +90,11 @@ const Pricing: React.FC = () => {
               Choose Plan
             </button>
           </div>
+
           {/* Standard Plan */}
-          <div className="bg-[#252B42] text-white shadow-lg rounded-lg p-6 text-center">
+          <div className="bg-[#252B42] text-white shadow-lg rounded-lg p-6 text-center w-full sm:w-80">
             <h3 className="text-xl font-bold mb-4">STANDARD</h3>
-            <p className="text-gray-200 mb-4">
-              Organize across all apps by hand
-            </p>
+            <p className="text-gray-200 mb-4">Organize across all apps by hand</p>
             <p className="text-4xl font-bold mb-4">
               $9.99 <span className="text-lg font-normal">/mo</span>
             </p>
@@ -80,8 +105,9 @@ const Pricing: React.FC = () => {
               Choose Plan
             </button>
           </div>
+
           {/* Premium Plan */}
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+          <div className="bg-white shadow-lg rounded-lg p-6 text-center w-full sm:w-80">
             <h3 className="text-xl font-bold mb-4">PREMIUM</h3>
             <p className="text-gray-600 mb-4">Organize across all apps by hand</p>
             <p className="text-4xl font-bold mb-4">
@@ -103,15 +129,17 @@ const Pricing: React.FC = () => {
           <p>Trusted by over 4000 big companies</p>
         </div>
       </footer>
-      <div className="bg-gray-50 text-gray-800">
+
       {/* Logo Section */}
-      <div className="flex justify-center gap-6 py-8">
-        <img src="/hooli.png" alt="Logo 1" className="h-8" />
-        <img src="/lyft.png" alt="Logo 2" className="h-8" />
-        <img src="/leaf.png" alt="Logo 3" className="h-8" />
-        <img src="/stripe.png" alt="Logo 4" className="h-8" />
-        <img src="/aws.png" alt="Logo 5" className="h-8" />
-        <img src="/robot.png" alt="Logo 6" className="h-8" />
+      <div className="bg-gray-50 text-gray-800">
+        <div className="flex justify-center gap-6 py-8 flex-wrap">
+          <img src="/hooli.png" alt="Logo 1" className="h-8" />
+          <img src="/lyft.png" alt="Logo 2" className="h-8" />
+          <img src="/leaf.png" alt="Logo 3" className="h-8" />
+          <img src="/stripe.png" alt="Logo 4" className="h-8" />
+          <img src="/aws.png" alt="Logo 5" className="h-8" />
+          <img src="/robot.png" alt="Logo 6" className="h-8" />
+        </div>
       </div>
 
       {/* Pricing FAQs Section */}
@@ -172,7 +200,6 @@ const Pricing: React.FC = () => {
           </a>
         </div>
       </section>
-    </div>
     </div>
   );
 };
