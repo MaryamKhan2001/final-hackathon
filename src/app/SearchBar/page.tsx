@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 
 // Define the product type
@@ -6,11 +7,15 @@ interface Product {
   name: string;
 }
 
-interface FurnitureSearchBarProps {
-  product: Product[]; // Ensure this matches the type of the passed prop
-}
+const sampleProducts: Product[] = [
+  { name: "Sofa" },
+  { name: "Table" },
+  { name: "Chair" },
+  { name: "Bed" },
+  { name: "Bookshelf" },
+];
 
-const FurnitureSearchBar: React.FC<FurnitureSearchBarProps> = ({ product }) => {
+const FurnitureSearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState<Product[]>([]);
 
@@ -19,7 +24,7 @@ const FurnitureSearchBar: React.FC<FurnitureSearchBarProps> = ({ product }) => {
     setSearchTerm(value);
 
     if (value.trim() !== "") {
-      const filteredSuggestions = product
+      const filteredSuggestions = sampleProducts
         .filter((product) =>
           product.name.toLowerCase().includes(value.toLowerCase())
         )
@@ -40,6 +45,7 @@ const FurnitureSearchBar: React.FC<FurnitureSearchBarProps> = ({ product }) => {
 
   return (
     <div className="flex flex-col items-center w-full sm:w-[600px] mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Furniture Search</h1>
       <div className="relative w-full">
         <input
           type="text"
