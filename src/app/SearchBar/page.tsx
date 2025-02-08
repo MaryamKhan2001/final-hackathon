@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 
 // Define the product type
@@ -7,7 +7,7 @@ interface Product {
 }
 
 interface FurnitureSearchBarProps {
-  product: Product[];
+  product: Product[]; // Ensure this matches the type of the passed prop
 }
 
 const FurnitureSearchBar: React.FC<FurnitureSearchBarProps> = ({ product }) => {
@@ -18,7 +18,6 @@ const FurnitureSearchBar: React.FC<FurnitureSearchBarProps> = ({ product }) => {
     const value = e.target.value;
     setSearchTerm(value);
 
-    // Filter suggestions based on the search term
     if (value.trim() !== "") {
       const filteredSuggestions = product
         .filter((product) =>
@@ -36,14 +35,11 @@ const FurnitureSearchBar: React.FC<FurnitureSearchBarProps> = ({ product }) => {
       alert("Please enter a search term!");
       return;
     }
-
-    // Add search logic here (e.g., navigate to search results page or filter products)
     alert(`Searching for "${searchTerm}"...`);
   };
 
   return (
     <div className="flex flex-col items-center w-full sm:w-[600px] mx-auto p-4">
-      {/* Search Bar */}
       <div className="relative w-full">
         <input
           type="text"
@@ -59,8 +55,6 @@ const FurnitureSearchBar: React.FC<FurnitureSearchBarProps> = ({ product }) => {
           Search
         </button>
       </div>
-
-      {/* Search Suggestions */}
       {suggestions.length > 0 && (
         <div className="w-full bg-white border border-gray-300 rounded-lg mt-2 shadow-lg">
           {suggestions.map((item, index) => (
